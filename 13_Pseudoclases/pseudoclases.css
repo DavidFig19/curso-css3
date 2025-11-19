@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.box{
+    display: block;
+    background: steelblue;
+    width: 55px;
+    height: 55px;
+    margin: 10px 0;
+    margin-left: 5px;
+    text-align: center;
+    line-height: 55px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.container{
+    margin-left: -5px;
+    padding: 10px 0;
+    border: 3px solid lightcoral;
+}
+
+/* Pseudo clases selectoras por su tipo Por su tipo */
+
+/*
+    :only-of-type
+    selecciona a los elementos que son unicos en su seccion o en su padre,
+    en el ejemplo selecciona la unica etiqueta p que hay en el container con clase box
+*/
+
+/* .box:only-of-type{
+    background: tomato;
+} */
+
+/*
+    :first-of-type Selecciona al primer elemento de su tipo dentro de su contenedor o padre con la clase asignada
+    en este caso la clase box
+*/
+
+/* .box:first-of-type{
+    background: tomato;
+} */
+
+/*
+   :last-of-type sigue la misma regla que el :first-of-type solo que en caso contrario seleccionando el ultimo elemento
+*/
+
+/* .box:last-of-type{
+    background: tomato;
+} */
+
+
+/*
+    :nth-of-type con esta pseudoclase se puede elegir a que elementos con esa clase voy a seleccionar,
+    dentro de el parentesis () se puede personalizar la regla de selección.
+
+
+    nota: la letra "n" dentro de la regla actua como un acumulador, su valor inicia desde cero.
+    n=0,
+    n=1,
+    n=2,
+    n=3...
+*/
+
+/*
+en este ejemplo de la regla selecciona todos los elementos impares,
+ya que si remplazamos la n por los numeros apartir del 0 no quedara algo como lo siguiente
+:nth-of-type(2n+1)
+
+    (n)
+2 * 0 = 0+1 = 1
+2 * 1 = 2+1 = 3
+2 * 2 = 4+1 = 5
+2 * 3 = 6+1 = 7
+
+Nota: para seleccionar elementos o tipos pares e impares tambien existen representacion sin la formula y son:
+(odd) para elementos impares equivale a la formula de (2n+1)
+(even) para elementos pares equivalente a la formula de (2n)
+*/
+
+/* .box:nth-of-type(2n+1){
+    background: tomato;
+} */
+
+/*
+    :nth-last-of-type funciona como los demas selectores de tipo, solo que empieza a seleccionar
+    de forma inversa, es decir de abajo hacia arriba
+*/
+
+/* .box:nth-last-of-type(odd){
+    background: tomato;
+} */
+
+
+
+/*
+    Pseudoclases selectoras child o hijo
+    sin importar tipo de elemento
+*/
+
+
+/* selecciona al unico elemento de su padre */
+
+/* .container :only-child{
+    background: tomato;
+} */
+
+/* selecciona al primer elemento de su padre */
+
+/* .box:first-child{
+    background: tomato;
+} */
+
+/* selecciona al ultimo elemento de su padre */
+
+/* div:last-child{
+    background: crimson;
+} */
+
+
+/* 
+    selecciona a varios elementos o los que le apliquemos en la regla del parentesis, por emplo
+    pares o impares nth-child(odd), nth-child(even), etc...
+*/
+/* .container :nth-child(1){
+    background: crimson;
+} */
+
+/* body :nth-child(1){
+    background: crimson;
+} */
+
+/*
+    :nth-last-child() selecciona a alos elementos de abajo hacia arriba
+*/
+.container :nth-last-child(1){
+    background: crimson;
+}

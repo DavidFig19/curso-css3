@@ -1,0 +1,149 @@
+*, ::after, ::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: salmon;
+    font-family: 'Arial';
+}
+
+.card{
+    width: 300px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: -20px -20px 0px 0px #fb968b;
+    border-radius: 10px;
+}
+
+
+.card__title{
+    /* border-bottom: 3px solid salmon; */
+    padding-bottom: 7px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/*
+    Permite modificar la manera en que seleccionamos a los elementos
+    en la página, por ejemplo cuando en la página seleccionamos el contenido de
+    un párrafo
+*/
+*::selection{
+    background: steelblue;
+    color: #fff;
+}
+
+/*
+    este pseudoelemento permite modificar la primera linea de un texto
+*/
+/* p::first-line{
+    color: crimson;
+    font-weight: bold;
+    font-size: 2rem;
+} */
+/*
+
+/*
+   Este pseudo elemento permite modificar la primera línea de un texto
+*/
+
+.card__text::first-letter{
+    font-size: 2rem;
+    line-height: 3rem;
+    letter-spacing: 20px;
+    color:red;
+} 
+
+input[type="text"]{
+    margin-left: 20px;
+    padding: 15px 3px;
+    background: crimson;
+    color: #fff;
+    border: none;
+    border-bottom: 4px solid #fff;
+    outline: none;
+}
+
+/*
+    ::placeholder permite modificar el contenido del input
+*/
+input[type="text"]::placeholder{
+    color: #fff;
+}
+
+
+/*
+    Before y after (antes y después) permiten insertar elementos en
+    el navegador sin estar escritos en el HTML
+*/
+/*
+<element>
+    ::before <- antes
+    Contenido
+    ::after <- despues
+</element>
+*/
+
+/*
+    Para aparecer un contenido en after o before, hace falta la propiedad
+    content, esta puede ser una imagen con el valor content:url('url-imagen'), o puede ser un
+    texto entre comillas content:"text";  pero sí, por ejemplo, queremos crear alguna caja o una línea
+    podemos poner simplemente comillas vacías para inicializar el contenido, ejemplo content:"";
+*/
+
+.card__text::before{
+    content: "Hola ";
+}
+
+.card__text::after{
+    content: " David";
+}
+
+.card__title::before,
+.card__title::after{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 3px;
+    padding: 2px;
+    background:salmon;
+}
+
+
+/*
+    con counter-reset inicializamos un contador
+*/
+ul{
+    counter-reset: numeros;
+}
+
+li{
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+/*
+
+      A content le asignamos el contenido de un contador, en este caso el llamado numeros,
+    Y con la propiedad counter-increment asignamos que contador es el que incrementará dinámicamente
+
+*/
+li::before{
+    content:  counter(numeros);
+    counter-increment: numeros;
+    background: salmon;
+    width: 30px;
+    height: 30px;
+    color: #fff;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+

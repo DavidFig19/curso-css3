@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*
+    custom properties o variables
+    las variables se declaran en :root para que todos los elementos
+    puedan acceder a las variables.
+
+    Nota:
+    Si declaró una variable en una sección o una clase que sea padre, solo esa clase y sus hijos podrán acceder
+    a esa variable.
+    En cambio, root es la pseudoclase que representa la raíz, es decir, todo el HTML, por ello todo el documento puede acceder
+    A las variables cuando se declaran en:root
+
+    Nota:
+    El nombre de una variable debe iniciar siempre con (--) seguido de una letra, no puede ser un número, además
+    De que el nombre no debe contener espacios, ejemplo: --variable-1
+
+    Nota:
+    En las variables solo pueden ir valores que irían en las propiedades, por ejemplo: el valor de un color, un borde, etc.
+*/
+:root{
+    --color1: darkcyan;
+    --color2: rgb(65, 4, 51);
+    --box-shadow:  5px 20px 5px rgba(201, 69, 69, 0.5);
+    --gradient: linear-gradient(to top,
+    #d1968c 0%, #fbc2eb 100%);
+}
+
+body{
+    font-family: 'Arial';
+    min-height: 100vh;
+    background-image: var(--gradient);
+}
+
+.card{
+    background:#fff;
+    width: 300px;
+    margin: 30px auto;
+    padding: 30px 20px;
+    box-shadow:var(--box-shadow);
+}
+
+.card__title{
+    font-size: 30px;
+    color: var(--color1, crimson);
+    margin-bottom: 20px;
+}
+
+.card__cta{
+    display: inline-block;
+    padding: 12px 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    background-image:var(--gradient);
+}
+
+/*
+    Como se muestra en este ejemplo, una variable puede ser modificada localmente,
+    por ejemplo como .card2 es padre de .card2__title dentro del padre o la misma clase card2__title puedo
+    sobreescribir una clase, en este caso es la del color que se usa en el título: --color1
+*/
+.card2{
+    background: #fff;
+    width: 300px;
+    margin: 30px auto;
+    padding: 30px 20px;
+    box-shadow:var(--box-shadow);
+    --color1: crimson;
+}
+
+p{
+    color: var(--color1);
+}
+
+/*
+     Los Fallbacks o el fallback es un valor que se le da a la propiedad en caso
+    de que no encuentre la variable, este valor va después del nombre de la variable, separado por una coma.
+    Por ejemplo: background: var(-color-100, blue);
+
+    Nota: el escope en las variables o lenguajes de programación, define el alcance de la variable.
+    El scope de una variable en CSS está limitado al elemento donde está ha sido declarada y a sus descendientes.
+    Por ejemplo: si una variable se declara dentro de una clase como .card2, esta variable no se podrá usar luego en otra clase.
+    Como, por ejemplo: .card
+*/
+.card2__title{
+    font-size: 30px;
+    color: var(--color1, var(--color26, crimson));
+    margin-bottom: 20px;
+   /*  --color1: blue; */
+}

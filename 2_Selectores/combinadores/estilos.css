@@ -1,0 +1,25 @@
+h2,h3{
+    font-size: 25px;
+    font-family: 'Arial';
+}
+
+/** selecciona a todos los elementos dentro de contenedor */
+.contenedor a{
+    text-decoration: none;
+    color: firebrick;
+}
+
+/* Selecciona al hijo directo de contenedor */
+.contenedor>a{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* selecciona al primer hermano p del h2 */
+h2+p{
+    color: gold;
+}
+/* selecciona a todos los hermanos que siguen despues del h3 */
+h3~p{
+    color: indigo;
+}

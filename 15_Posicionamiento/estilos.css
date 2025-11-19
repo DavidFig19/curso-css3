@@ -1,0 +1,114 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Arial';
+    height: 300vh;
+}
+
+.container{
+    width: 450px;
+    height: 530px;
+    margin: 20px auto;
+    border: 5px solid crimson;
+    position: relative;
+}
+
+.box{
+    background: steelblue;
+    width: 100px;
+    height: 100px;
+    margin-top:20px;
+    margin-left: 20px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    line-height: 100px;
+}
+
+/*
+    nota el flujo de una web es de arriba hacia abajo y de izquierda a derecha
+*/
+/*
+    El posicionamiento estático no es necesario declararlo, ya que por defecto todos los
+    elementos ya tienen ese posicionamiento
+*/
+.static{
+    position: static;
+
+}
+
+/*
+    position relative al principio no modifica el flujo ni el posicionamiento del elemento.
+    Este posicionamiento desbloquea 4 propiedades:
+    top, left, right, bottom.
+    un posicion relative se posiciona relativamente a su posición original
+*/
+.relative{
+    background: crimson;
+    position: relative;
+    /* z-index: 10;
+    bottom: 40px;
+    left: 10px; */
+    /* top: ;
+    left: ;
+    right: ;
+    bottom: ; */
+}
+
+/*
+    Los elementos, con posición absolute, pierden su espacio en el flujo
+    es decir, se salen del flujo.
+    Una posición absolute se posiciona con base en su ancestro previamente posicionado.
+    Si no tiene un ancestro posicionado por defecto, se posiciona al body del navegador
+*/
+
+/*
+    Nota z-index define el apilamiento o el posicionamiento en el eje Z por defecto; se define cómo se van creando los elementos.
+    Es decir, qué elemento fue creado antes, de arriba hacia abajo.
+    Pero con z-index podemos ajustar o cambiar ese orden.
+    z-index acepta valores negativos y positivos siempre y cuando sean enteros.
+    Los elementos con mayor valor en el z-index son los que se van a superponer sobre otros,
+    Por ejemplo: uno de z-index:10 estará por encima de un z-index:2
+*/
+.absolute{
+    background: purple;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    Z-index:10;
+    /* top:30%; */
+    /* left: 40px; */
+    /* z-index: 10; */
+}
+
+/*
+    Posicionamiento fijo o fixed.
+    De igual manera que absolute este posicionamiento pierde su espacio en el flujo (sale del flujo).
+    El position-fixed se posiciona con base en el navegador o viewport, sin importar que su padre ya este posicionado
+*/
+
+.fixed{
+    background: darkcyan;
+    position: fixed;
+    width: 100%;
+    height: auto;
+    padding: 1em 0;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+}
+
+.fixed a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.fixed a:hover{
+    text-decoration: underline;
+}

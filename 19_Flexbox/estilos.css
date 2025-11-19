@@ -1,0 +1,288 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container{
+    width: 400px;
+    /* max-width: 600px; */
+    height: 600px;
+    outline: 2px solid #000;
+    margin: 30px auto;
+    
+    /*
+        para usar flexbox necesitamos un contenedor
+        y dentro de este contenedor los elementos (hijos) del contenedor.
+
+        al elemento contenedor se le llama flex container y a los elementos hijos se les llama flex items
+    */
+
+    display: flex;
+
+    /* Las direcciones de flex-direciton son row (horizontal) y column (vertical), por defecto es row */
+    
+    flex-direction: row;
+
+    /* 
+        flex-wrap: Controla si los elementos flexibles deben ajustarse a nuevas líneas o mantenerse en una sola.
+
+        Valores:
+
+        nowrap (por defecto)
+        - Todos los elementos se mantienen en una sola línea, incluso si no caben.
+        🚀 Ejemplo: Útil cuando quieres evitar que los elementos salten a una nueva línea.
+
+        wrap
+        - Los elementos se ajustan a una nueva línea si no caben en la actual.
+        🚀 Ejemplo: Ideal para diseños responsivos.
+
+        wrap-reverse  
+        - Similar a wrap, pero los elementos se ajustan en el sentido inverso del eje secundario.  
+        🚀 Ejemplo: Si flex-direction es row, los elementos se envuelven de abajo hacia arriba.  
+                    Si flex-direction es column, los elementos se envuelven de derecha a izquierda.
+    */
+
+    flex-wrap: nowrap;
+
+    /* 
+        flex flow es la abreviacion de la propiedad flex direction y flex wrap.
+        el primer valor es la direccion y el segundo el wrap
+        flex-flow: <direction> <wrap>;
+    */
+
+    /* flex-flow: column wrap-reverse; */
+
+   
+    /* 
+        justify-content nos permite alinear en el eje principal o main axis.
+        Su valor por defecto es flex-start.
+
+        Justify-Content: Valores y ejemplos
+
+        flex-start (por defecto)
+        - Los elementos se alinean al inicio del eje principal.
+        🚀 Ejemplo:
+            - En flex-direction: row; los elementos estarán alineados a la izquierda.
+            - En flex-direction: column; los elementos estarán alineados en la parte superior.
+
+        flex-end
+        - Los elementos se alinean al final del eje principal.
+        🚀 Ejemplo:
+            - En flex-direction: row; los elementos estarán alineados a la derecha.
+            - En flex-direction: column; los elementos estarán alineados en la parte inferior.
+
+        center
+        - Los elementos se alinean en el centro del eje principal.
+        🚀 Ejemplo:
+            - En flex-direction: row; los elementos estarán centrados horizontalmente.
+            - En flex-direction: column; los elementos estarán centrados verticalmente.
+
+        space-between
+        - Los elementos se distribuyen uniformemente; el primero se alinea al inicio y el último al final, dejando espacios iguales entre ellos.
+        🚀 Ejemplo:
+            - En flex-direction: row; el primer elemento estará a la izquierda y el último a la derecha.
+            - En flex-direction: column; el primer elemento estará arriba y el último abajo.
+
+        space-around
+        - Los elementos tienen espacios iguales alrededor de ellos, lo que significa que los espacios de los bordes exteriores serán la mitad de los espacios internos.
+        🚀 Ejemplo:
+            - En flex-direction: row; los elementos tendrán más espacio entre ellos pero sin llegar a los extremos.
+            - En flex-direction: column; los elementos tendrán más espacio verticalmente pero sin pegarse a los bordes superior e inferior.
+
+        space-evenly
+        - Los elementos tienen espacios iguales entre ellos, incluyendo los bordes exteriores.
+        🚀 Ejemplo:
+            - En flex-direction: row; los elementos estarán distribuidos con el mismo espacio horizontalmente.
+            - En flex-direction: column; los elementos estarán distribuidos con el mismo espacio verticalmente.
+    */
+
+    justify-content: flex-start;
+
+    /*
+        align-items: Alineación de los elementos a lo largo del eje secundario (perpendicular al eje principal).
+
+        flex-start
+        - Los elementos se alinean al inicio del eje secundario.
+        🚀 Ejemplo:
+            - En flex-direction: row; los elementos se alinean en la parte superior.
+            - En flex-direction: column; los elementos se alinean a la izquierda.
+
+        flex-end
+        - Los elementos se alinean al final del eje secundario.
+        🚀 Ejemplo:
+            - En flex-direction: row; los elementos se alinean en la parte inferior.
+            - En flex-direction: column; los elementos se alinean a la derecha.
+
+        center
+        - Los elementos se alinean en el centro del eje secundario.
+        🚀 Ejemplo:
+            - En flex-direction: row; los elementos se alinean verticalmente en el centro.
+            - En flex-direction: column; los elementos se alinean horizontalmente en el centro.
+
+        baseline
+        - Los elementos se alinean con su línea base (generalmente la parte inferior de los textos o contenido).
+        🚀 Ejemplo:
+            - En flex-direction: row; los elementos se alinean con la línea base de su contenido (como texto).
+            - En flex-direction: column; los elementos se alinean a la misma altura basándose en la línea base.
+
+        stretch (por defecto)
+        - Los elementos se estiran para llenar el contenedor en el eje secundario.
+        🚀 Ejemplo:
+            - En flex-direction: row; los elementos se estiran verticalmente para llenar el contenedor ( si los items no tienen altura definida).
+            - En flex-direction: column; los elementos se estiran horizontalmente para llenar el contenedor ( si los items no tienen ancho definido).
+
+    */
+
+    align-items: stretch;
+
+    /*
+        align-content: Alinea las líneas de los elementos (cuando hay más de una) a lo largo del eje secundario. 
+        Esto solo afecta cuando hay múltiples líneas de elementos, por ejemplo, cuando se usa flex-wrap.
+
+        flex-start
+        - Las líneas de los elementos se alinean al inicio del eje secundario.
+        🚀 Ejemplo:
+            - En flex-direction: row; las líneas de los elementos se alinean a la parte superior.
+            - En flex-direction: column; las líneas de los elementos se alinean a la izquierda.
+
+        flex-end
+        - Las líneas de los elementos se alinean al final del eje secundario.
+        🚀 Ejemplo:
+            - En flex-direction: row; las líneas de los elementos se alinean a la parte inferior.
+            - En flex-direction: column; las líneas de los elementos se alinean a la derecha.
+
+        center
+        - Las líneas de los elementos se alinean en el centro del eje secundario.
+        🚀 Ejemplo:
+            - En flex-direction: row; las líneas de los elementos se alinean verticalmente en el centro.
+            - En flex-direction: column; las líneas de los elementos se alinean horizontalmente en el centro.
+
+        space-between
+        - Las líneas de los elementos se distribuyen uniformemente, dejando el mismo espacio entre ellas.
+        🚀 Ejemplo:
+            - En flex-direction: row; las líneas se distribuyen verticalmente con el mismo espacio entre ellas.
+            - En flex-direction: column; las líneas se distribuyen horizontalmente con el mismo espacio entre ellas.
+
+        space-around
+        - Las líneas de los elementos tienen espacios iguales alrededor de ellas, es decir, los espacios entre las líneas son el doble que los espacios de los bordes.
+        🚀 Ejemplo:
+            - En flex-direction: row; las líneas de los elementos tendrán más espacio entre ellas, pero los bordes superior e inferior tendrán la mitad del espacio.
+            - En flex-direction: column; las líneas de los elementos tendrán más espacio entre ellas, pero los bordes izquierdo y derecho tendrán la mitad del espacio.
+
+        space-evenly
+        - Las líneas de los elementos se distribuyen con espacios iguales entre ellas, incluyendo los bordes exteriores.
+        🚀 Ejemplo:
+            - En flex-direction: row; las líneas de los elementos se distribuyen con el mismo espacio verticalmente.
+            - En flex-direction: column; las líneas de los elementos se distribuyen con el mismo espacio horizontalmente.
+
+    */
+    align-content: normal;
+    
+}
+
+.item{
+    width: 150px;
+    --height: 90px;
+    background:tomato ;
+    height: var(--height);
+    line-height: var(--height);
+    color: #fff;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: sans-serif;
+
+    /* 
+    🔹 ORDER EN FLEXBOX 🔹
+
+    La propiedad `order` permite cambiar el orden visual de los elementos flexibles 
+    sin modificar el HTML.
+
+    📌 Reglas:
+    - Los elementos con menor valor de `order` aparecen primero.
+    - Si dos elementos tienen el mismo `order`, se mantienen en el orden original del HTML.
+
+    📌 Valores:
+    - Números negativos (-1, -2, etc.): Mueven el elemento al inicio.
+    - Cero (0): Mantiene el orden original (valor por defecto).
+    - Números positivos (1, 2, etc.): Mueven el elemento al final.
+
+    📌 Ejemplo:
+    .item-1 { order: 2; }  Se mueve al final
+    .item-2 { order: -1; } Se mueve al principio
+    .item-3 { order: 0; }  Se mantiene en su lugar
+
+    🔹 NOTA: `order` solo afecta la apariencia visual, pero no cambia el DOM, 
+            lo que puede afectar accesibilidad y SEO.
+    */
+   order: 0;
+
+    /* 
+        🔹 FLEX-GROW EN FLEXBOX 🔹
+
+        La propiedad `flex-grow` determina cómo un elemento flexible puede 
+        **crecer** en relación con los demás elementos dentro del mismo contenedor.
+
+        📌 Valores:
+        - `flex-grow: 0;` (por defecto): El elemento **no crece** más allá de su tamaño inicial.
+        - `flex-grow: 1;` (valor más común): El elemento puede **crecer** para ocupar el espacio disponible.
+        - Cualquier valor positivo: Define la **proporción** en la que un elemento debe crecer comparado con otros.
+
+        📌 Ejemplo:
+        .item-1 { flex-grow: 1; }  Crece para ocupar el espacio disponible 
+        .item-2 { flex-grow: 2; }  Crece el doble que .item-1
+        .item-3 { flex-grow: 0; }   No crece, mantiene su tamaño inicial
+
+        🔹 NOTA: `flex-grow` funciona solo si hay **espacio disponible** en el contenedor. 
+                Si todos los elementos tienen `flex-grow: 0`, no crecerán, 
+                independientemente del espacio disponible.
+    */
+    /* flex-grow: 1; */
+
+    /* 
+        flex-shrink define cuánto puede reducirse un elemento flexible si no hay suficiente espacio en el contenedor.
+        Un valor de 0 evita que el elemento se encoja, mientras que valores mayores permiten que se reduzca más en
+        comparación con otros elementos. 
+        por defecto su valor es 1
+   */
+    /* flex-shrink: 1; */
+    /* 
+        flex-basis define el tamaño inicial de un elemento flexible antes de que se apliquen flex-grow o flex-shrink.
+        Puede ser un valor en px, %, em, etc., o 'auto' para usar el tamaño del contenido. 
+        su valor por defecto es auto
+    */
+    /* flex-basis:auto; */
+
+    /* La propiedad flex es un atajo para definir flex-grow, flex-shrink y flex-basis en un solo lugar.
+   Sintaxis: flex: <grow> <shrink> <basis>;
+   Ejemplo: flex: 1 0 100px; → Crece, no se encoge y tiene un tamaño inicial de 100px. */
+    /* flex: 1; */
+    
+}
+
+.item1{
+    /* flex-shrink: 3; */
+
+   /* align-self permite alinear individualmente un elemento dentro de un contenedor flex o grid, 
+   sobrescribiendo el valor de align-items solo para ese elemento. 
+   */
+
+    /* center, flex-start, flex-end,center, baseline */
+    /* align-self: center; */
+
+}
+
+.item2{
+    background: darkslateblue;
+}
+
+.item3{
+    background: crimson;
+   
+    
+}
+
+.item4{
+    background: steelblue;
+}

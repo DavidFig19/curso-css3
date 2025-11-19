@@ -1,0 +1,183 @@
+/* nota: a los mediaquerys los afecta la cascada, herencia y especificidad*/
+
+/*
+    la practica de los mediaquery se junto con la practiva de variables en la carpeta 16.1_Practica_variables
+*/
+
+:root{
+    --color:#000;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.title{
+    font-size: 3rem;
+    background: none;
+    color: var(--color);
+    border-bottom: none;
+    margin: 40px 0;
+    text-align: center;
+    font-family: monospace;
+}
+
+body{
+    background-color:steelblue;
+}
+
+@media screen and (max-width:600px){
+
+    /* 
+        Se puede cambiar el valor de las variables de css en los mediaquerys
+    */
+    :root{
+        --color:white;
+    }
+    /* .title{
+        color:var(--color);
+    } */
+}
+
+/*
+    En el diseño adaptable o responsive design, existen dos maneras de maquetar: el mobile first, que empieza primero maquetando para dispositivos móviles, y el desktop first, que empieza maquetando primero para dispositivos de escritorio
+*/
+
+
+/*
+     ¿Qué es el viewport?
+
+    El viewport es el área visible del navegador que se muestra en la pantalla. Cada dispositivo tiene un viewport diferente.
+
+
+
+    Etiqueta  viewport:
+
+    La etiqueta viewport en HTML, le indica al navegador que no importa el dispositivo donde 
+    se esté visualizando, el documento de HTML5 debe ocupar el 100% del ancho del 
+    dispositivo donde se visualiza.
+
+    Informacion de la etiqueta viewport
+
+    https://developer.mozilla.org/es/docs/Web/HTML/Viewport_meta_tag
+
+*/
+
+/*
+    ¿Qué son los media queries?
+
+    Los media query, se utilizan en CSS3 como una medida para cambiar ciertos valores de distintos elementos, 
+    Cuando el viewport tenga un cierto tamaño u orientación en específico.
+    Las media queries respetan la especifidad, herencia y cascada
+
+    importante:
+
+    En los media queries, min-width y max-width se usan para definir puntos de quiebre (breakpoints) y aplicar estilos específicos según el tamaño de la pantalla.
+
+    min-width en media queries (Mobile-first)
+    Se usa en enfoque mobile-first (estilos base para móviles, ajustando hacia pantallas más grandes).
+    Aplica estilos a partir de un tamaño mínimo de pantalla.
+
+    max-width en media queries (Desktop-first)
+    Se usa en enfoque desktop-first (estilos base para pantallas grandes, ajustando hacia móviles).
+    Aplica estilos hasta un tamaño máximo de pantalla
+*/
+
+
+/*
+    sintaxis de media query
+    media type son los dispositivos
+    por ejemplo el: print, speech screen
+*/
+@media <media-type> and (expresion){
+   /*  se ejecutara */
+}
+
+
+/*
+    Screen se usa para pantallas
+*/
+@media screen and (min-width:700px){
+  
+    body{
+        background: crimson;
+    }
+}
+
+/*
+    spech se usa para sintetizadores de voz
+*/
+@media speech (){
+
+}
+
+/* 
+@media screen and (max-width:400px), (min-width:900px){
+    .title{
+        background: #000;
+        color: #fff;
+    }
+} */
+
+
+/* 
+@media screen and (orientation:portrait) and (max-width:600px){
+    .title{
+        text-align: left;
+        background: steelblue;
+    }
+} */
+
+/* @media screen and (orientation:portrait){
+    .title{
+        margin: 0;
+        color: steelblue;
+        background: #000;
+        height: 100vh;
+    }
+}
+ */
+
+/* @media <media-type> and (expression){
+    
+
+} */
+
+/*
+    El media-type o dispositivo print es cuando mandamos a
+    imprimir una página y aparece una mini pantalla de visualización
+*/
+
+@media print{
+    
+
+    .title{
+        color: steelblue;
+        font-size: 5rem;
+        text-align: right;
+        font-family: cursive;
+    }
+}
+
+/* landscape es cuando nuestro dispositivo esta en horizontal, es decir cuando el ancho es mas que el alto, portrait es lo contrario */
+
+@media screen and (orientation: landscape){
+    .title{
+        color: green;
+    }
+}
+
+
+/*
+    Los media queries pueden tener condicionales, el and y el or
+    el and se declaera con un and, pero el or se declara con una coma
+*/
+
+@media screen and (max-width:400px), (min-width:900px){
+    .title{
+        background: #000;
+        color: orange;
+    }
+}

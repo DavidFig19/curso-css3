@@ -1,0 +1,28 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header{
+    padding: 45px 0;
+    color: #fff;
+    color: rgb(255,255,255);
+    /* rgb el color mnimo es 0 y el maximo 255 */
+    /* background:rgb(0,0,0); */
+    background:rgb(200,0,0);
+    background: rgba(78, 14, 138, 0.575);
+    /* primeras 2 f son para color rojo, la tercera y cuarta es verde y la quinta y sexta f son azul */
+    background: #0000ff;
+    background: #1b95aad5;
+    /* background: hsl(hue,saturation,lightness); */
+    background: hsl(180, 40%, 20%);
+    background:#582660;
+  
+    
+}
+
+
+.title{
+    text-align: center;
+}

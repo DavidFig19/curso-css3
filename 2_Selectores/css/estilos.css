@@ -1,0 +1,52 @@
+
+/* Selector de tipo */
+h2{
+    color:steelblue;
+}
+
+/* Selector clase  */
+.borde{
+    border: 1px solid black;
+}
+
+/*Selector id */
+#section{
+    border:1px solid black;
+}
+
+.titulo{
+    text-align: center;
+}
+
+.😁{
+    color: darkblue;
+}
+
+.😂{
+    border: 1px solid black;
+    font-size: 20px;
+}
+
+/*Selector de atributos */
+a[href]{
+    text-decoration: none;
+}
+
+[href="https://alexcgdesign.com/inicio"]{
+    color: darkred;
+}
+
+/* selecciona a los elementos con el valor al principio */
+[href^="hsttps"]{
+    color: darkolivegreen;
+}
+
+/* selecciona a los elementos con el valor al final */
+[href$=".org"]{
+    background: steelblue;
+}
+
+/* selecciona a los elementos que contengan ese valor */
+[href*="alexcgdesign"]{
+    background: darksalmon;
+}
